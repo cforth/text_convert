@@ -118,12 +118,13 @@ function dongbei_encode() {
     var b = new Base64();
     var str = b.encode(string);
     var dongbeiStrList = [];
-    for (i=0; i < 65; i++) {
+    for (i=0; i < str.length; i++) {
         index = KEYSTR.indexOf(str[i]);
         dongbeiStrList.push(DONGBEILIST[index]);
     }
     var dongbeiStr = dongbeiStrList.join("");
     document.getElementById("result").innerHTML = dongbeiStr;
+    console.log(str);
 }
 
 function dongbei_decode() {
@@ -139,5 +140,6 @@ function dongbei_decode() {
     }
     var b = new Base64();
     var str = b.decode(string);
+    console.log(string);
     document.getElementById("result").innerHTML = str;
 }
