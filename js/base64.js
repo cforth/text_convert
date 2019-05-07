@@ -102,15 +102,41 @@ function Base64() {
     }
 }
 
-function base64_encode() {
-    string = document.getElementById("originalText").value
+KEYSTR = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+
+DONGBEILIST = ["抠，", "嘎，", "黑，", "皮，", "骚，", "帮，", "胖，", "民，", 
+               "上，", "整，", "揍，", "弄，", "歪，", "瞒，", "脍，", "二，", 
+               "呛，", "银，", "贫，", "嗯呐", "咋地", "噶哈", "鼓捣", "撂下",
+                "嘘呼", "倒嚼", "开壶", "昨个", "一码", "扒瞎", "悬乎", "茅楼", 
+                "邪呼", "晃常", "反群", "连裆", "喀拉", "盯吧", "坐地", "白扯", 
+                "鸡尖", "噶答", "人家", "瘪子", "立马", "隔叽", "扯蛋", "开腚", 
+                "走道", "糨子", "自个", "约么", "磨叽", "拉巴", "上货", "得瑟", 
+                "刺挠", "诡道", "带劲", "够戗", "旮旯", "嚼兴", "糗了", "稀罕", "吧！"];
+
+function dongbei_encode() {
+    var string = document.getElementById("originalText").value;
     var b = new Base64();
     var str = b.encode(string);
-    document.getElementById("result").innerHTML = str;
+    var dongbeiStrList = [];
+    for (i=0; i < 65; i++) {
+        index = KEYSTR.indexOf(str[i]);
+        dongbeiStrList.push(DONGBEILIST[index]);
+    }
+    var dongbeiStr = dongbeiStrList.join("");
+    document.getElementById("result").innerHTML = dongbeiStr;
 }
 
-function base64_decode() {
-    string = document.getElementById("originalText").value
+function dongbei_decode() {
+    var dongbeiStr = document.getElementById("originalText").value;
+    var dongbeiStrList = [];
+    var string = "";
+    for (i=0; i < dongbeiStr.length; i=i+2) {
+        dongbeiStrList.push(dongbeiStr[i] + dongbeiStr[i+1]);
+    }
+    for (i=0; i < dongbeiStrList.length; i++) {
+        index = DONGBEILIST.indexOf(dongbeiStrList[i]);
+        string += KEYSTR[index];
+    }
     var b = new Base64();
     var str = b.decode(string);
     document.getElementById("result").innerHTML = str;
