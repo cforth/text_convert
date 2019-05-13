@@ -1,0 +1,22 @@
+table,td,th {
+    border:1px solid #C9C9C9;
+}
+
+table {
+    border-collapse:collapse;
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+th {
+    background-color:#CDE5FC;
+    padding:5px;
+}
+
+td {
+    padding:5px;
+}
+
+.wrap{
+    text-align:center
+}  

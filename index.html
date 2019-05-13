@@ -4,35 +4,40 @@
 <head>
     <meta charset="utf-8">
     <title>东北话编码解码</title>
+    <link rel="stylesheet" type="text/css" href="css/mystyle.css">
     <script type="text/javascript" src="js/base64.js"></script>
 </head>
 
-<body>
-    <form>
-        <table border="1px solid" cellpadding="5" cellspacing="0" width="500px">
-            <tr>
-                <th colspan="3">东北话编码解码</th>
-            </tr>
-            <tr>
-                <td width="20%">原文:</td>
-                <td width="80%">
-                    <textarea id="originalText" cols="50" rows="10"></textarea>
-                </td>
-            </tr>
-        </table>
-        <input type="button" value="转成东北话" onclick="dongbei_encode()"></input>
-        <input type="button" value="转回来" onclick="dongbei_decode()"></input>
-    </form>
+<body style="text-align:center">
+    <h1>东北话编码解码</h1>
 
+    <div class="wrap">
+        <form>
+            <table cellpadding="5" cellspacing="0" width="800px">
+                <tr>
+                    <th>原文</th>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea id="originalText" cols="100" rows="10"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="转成东北话" onclick="dongbei_encode()"></input>
+                        <input type="button" value="转回来" onclick="dongbei_decode()"></input>
+                    </td>
+                </tr>
+            </table>
+        </form>
 
-    <div>
-        <table border="1px solid" cellpadding="5" cellspacing="0" width="500px" class="floatleft">
+        <table cellpadding="5" cellspacing="0" width="800px">
             <tr>
-                <th colspan="2">转换结果</th>
+                <th>转换结果</th>
             </tr>
             <tr>
                 <td>
-                    <textarea id="result" cols="60" rows="15"></textarea>
+                    <textarea id="result" cols="100" rows="15"></textarea>
                 </td>
             </tr>
         </table>
